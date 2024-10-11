@@ -1,12 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
 const avisoRoutes = require("./routes/avisoRoutes");
-
 const app = express();
 
-DB = "mongodb+srv://rogercauarcb:1500@users.wq3oh.mongodb.net/atividadeAuth";
+dotenv.config();
+
+DB = process.env.DATABASE
 
 mongoose.connect(DB)
 .then(() => console.log("Conectado ao Banco de Dados"))
